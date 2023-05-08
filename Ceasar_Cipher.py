@@ -41,7 +41,7 @@ def bruteforce(string):
 
 def modify(string, key):
     if not key.isdigit():
-        print("⚠️ Invalid key, attempting to use brute force. ⚠️")
+        print("⚠ Invalid key, attempting to use brute force. ⚠")
         bruteforce(string)
         return
 
