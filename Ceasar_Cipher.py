@@ -9,7 +9,7 @@ def encrypt(string, key):
     for i in range (0, len(stringlist)):
         if stringlist[i] in alphabet:
             n = alphabet.index(stringlist[i])
-            n = (n+int(key)+i*i) % len(alphabet)
+            n = (n+int(key)+(i*i)) % len(alphabet)
             encoded.append(alphabet[n])
         else:
             encoded.append(stringlist[i])
@@ -20,17 +20,17 @@ def encrypt(string, key):
 
 def decrypt(string, key):
     stringlist = [*string]
-    decoded = []
- 
+    encoded = []
+
     for i in range (0, len(stringlist)):
         if stringlist[i] in alphabet:
             n = alphabet.index(stringlist[i])
-            n = (n-int(key)-i*i) % len(alphabet)
-            decoded.append(alphabet[n])
+            n = (n-int(key)-(i*i)) % len(alphabet)
+            encoded.append(alphabet[n])
         else:
-            decoded.append(stringlist[i])
-    decoded = "".join(decoded)
-    return decoded
+            encoded.append(stringlist[i])
+    encoded = "".join(encoded)
+    return encoded
 
 
 
@@ -41,7 +41,7 @@ def bruteforce(string):
 
 def modify(string, key):
     if not key.isdigit():
-        print("⚠ Invalid key, attempting to use brute force. ⚠")
+        print("⚠️ Invalid key, attempting to use brute force. ⚠️")
         bruteforce(string)
         return
 
